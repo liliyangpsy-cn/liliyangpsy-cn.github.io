@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Li Yang</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #1e3a8a;
+            --warm-beige: #f5f5dc;
+            --amber-gold: #f59e0b;
+            --charcoal: #374151;
+        }
+        
+        .font-display { font-family: 'Playfair Display', serif; }
+        .font-body { font-family: 'Inter', sans-serif; }
+        
+        .nav-blur {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.9);
+        }
+        
+        .contact-card {
+            transition: all 0.3s ease;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(30, 58, 138, 0.1);
+        }
+        
+        .form-input {
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(30, 58, 138, 0.1);
+        }
+        
+        .floating-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        .time-slot {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .time-slot:hover {
+            background: var(--amber-gold);
+            color: white;
+            transform: scale(1.05);
+        }
+        
+        .time-slot.selected {
+            background: var(--primary-blue);
+            color: white;
+        }
+        
+        .contact-method {
+            transition: all 0.3s ease;
+        }
+        
+        .contact-method:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-method.recommended {
+            border: 2px solid var(--amber-gold);
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(245, 158, 11, 0.05));
+        }
+    </style>
+</head>
+<body class="font-body text-gray-800 bg-gray-50">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 nav-blur shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="font-display font-bold text-xl text-blue-900">
+                    <a href="index.html">Li Yang</a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-900 transition-colors">Home</a>
+                    <a href="research.html" class="text-gray-700 hover:text-blue-900 transition-colors">Research</a>
+                    <a href="clinical.html" class="text-gray-700 hover:text-blue-900 transition-colors">Clinical Experience</a>
+                    <a href="statement.html" class="text-gray-700 hover:text-blue-900 transition-colors">Personal Statement</a>
+                    <a href="life.html" class="text-gray-700 hover:text-blue-900 transition-colors">Life Beyond Lab</a>
+                    <a href="contact.html" class="text-blue-900 font-semibold">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Title -->
+    <section class="pt-24 pb-12 bg-white relative overflow-hidden">
+        <div class="floating-bg" id="floating-bg"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <h1 class="font-display text-5xl font-bold text-gray-900 mb-6">Contact</h1>
+            <p class="text-xl text-gray-600">
+                Looking forward to connecting and collaborating
+            </p>
+        </div>
+    </section>
+
+    <!-- Smart Contact Recommendation -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="font-display text-3xl font-bold text-gray-900 mb-4">Smart Contact Options</h2>
+                <p class="text-lg text-gray-600">Choose the best way to reach me based on your needs</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <div class="contact-method recommended bg-white rounded-2xl p-6 shadow-lg text-center">
+                    <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-xl font-semibold mb-2">Email</h3>
+                    <p class="text-gray-600 mb-4 text-sm">Best for academic correspondence and document sharing</p>
+                    <div class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-xs font-semibold mb-3">
+                        Recommended
+                    </div>
+                    <p class="text-blue-600 font-semibold">liyangpsy@mail.bnu.edu.cn</p>
+                </div>
+                
+                <div class="contact-method bg-white rounded-2xl p-6 shadow-lg text-center">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-xl font-semibold mb-2">Phone</h3>
+                    <p class="text-gray-600 mb-4 text-sm">Suitable for urgent matters and in-depth discussions</p>
+                    <div class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-semibold mb-3">
+                        Business Hours
+                    </div>
+                    <p class="text-blue-600 font-semibold">+1 (672) 381-3631</p>
+                </div>
+                
+                <div class="contact-method bg-white rounded-2xl p-6 shadow-lg text-center">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3a2 2 0 012-2h4a2 2 0 012 2v1m-6 0V6a2 2 0 012-2h4a2 2 0 012 2v1m-6 0h8m-8 0v10a2 2 0 002 2h8a2 2 0 002-2V8m-8 0V6"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-xl font-semibold mb-2">Online Meeting</h3>
+                    <p class="text-gray-600 mb-4 text-sm">Face-to-face conversation and screen sharing</p>
+                    <div class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-semibold mb-3">
+                        By Appointment
+                    </div>
+                    <p class="text-blue-600 font-semibold">Schedule a Meeting</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="font-display text-3xl font-bold text-gray-900 mb-4">Send a Message</h2>
+                <p class="text-lg text-gray-600">Fill out the form and I'll get back to you soon</p>
+            </div>
+            
+            <div class="bg-white rounded-3xl p-8 md:p-12 shadow-lg">
+                <form id="contact-form" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block text-sm font-semibold text-gray-700 mb-2">Name *</label>
+                            <input type="text" id="name" name="name" required 
+                                   class="form-input w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">Email *</label>
+                            <input type="email" id="email" name="email" required 
+                                   class="form-input w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label for="subject" class="block text-sm font-semibold text-gray-700 mb-2">Subject *</label>
+                        <select id="subject" name="subject" required 
+                                class="form-input w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            <option value="">Please select the purpose of contact</option>
+                            <option value="academic">Academic Collaboration</option>
+                            <option value="research">Research Consultation</option>
+                            <option value="supervision">Supervision Inquiry</option>
+                            <option value="collaboration">Project Collaboration</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label for="message" class="block text-sm font-semibold text-gray-700 mb-2">Message *</label>
+                        <textarea id="message" name="message" rows="6" required 
+                                  class="form-input w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                  placeholder="Please describe your needs or questions in detail..."></textarea>
+                    </div>
+                    
+                    <div class="flex items-center">
+                        <input type="checkbox" id="privacy" name="privacy" required 
+                               class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                        <label for="privacy" class="ml-2 text-sm text-gray-600">
+                            I agree to the processing of my personal information for responding to this inquiry
+                        </label>
+                    </div>
+                    
+                    <div class="text-center">
+                        <button type="submit" 
+                                class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105">
+                            Send Message
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Time Zone Information -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="font-display text-3xl font-bold text-gray-900 mb-4">My Schedule</h2>
+                <p class="text-lg text-gray-600">Understanding my availability helps choose the best contact time</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="bg-gray-50 rounded-3xl p-8">
+                    <h3 class="font-display text-2xl font-semibold mb-6 text-center">Available Times This Week</h3>
+                    <div class="space-y-4">
+                        <div class="bg-white rounded-xl p-4 shadow-sm">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <div class="font-semibold text-gray-900">Monday - Friday</div>
+                                    <div class="text-sm text-gray-600">Academic work hours</div>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-blue-600 font-semibold">9:00 - 18:00</div>
+                                    <div class="text-xs text-gray-500">Beijing Time</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white rounded-xl p-4 shadow-sm">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <div class="font-semibold text-gray-900">Saturday</div>
+                                    <div class="text-sm text-gray-600">Research time</div>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-green-600 font-semibold">14:00 - 17:00</div>
+                                    <div class="text-xs text-gray-500">Beijing Time</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white rounded-xl p-4 shadow-sm">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <div class="font-semibold text-gray-900">Sunday</div>
+                                    <div class="text-sm text-gray-600">Rest day</div>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-red-600 font-semibold">Unavailable</div>
+                                    <div class="text-xs text-gray-500">Delayed response</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 rounded-3xl p-8">
+                    <h3 class="font-display text-2xl font-semibold mb-6 text-center">Quick Meeting Booking</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Select Date</label>
+                            <input type="date" id="meeting-date" 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Select Time Slot</label>
+                            <div class="grid grid-cols-2 gap-3">
+                                <div class="time-slot bg-white border border-gray-300 rounded-lg p-3 text-center text-sm">
+                                    10:00 - 11:00
+                                </div>
+                                <div class="time-slot bg-white border border-gray-300 rounded-lg p-3 text-center text-sm">
+                                    14:00 - 15:00
+                                </div>
+                                <div class="time-slot bg-white border border-gray-300 rounded-lg p-3 text-center text-sm">
+                                    15:30 - 16:30
+                                </div>
+                                <div class="time-slot bg-white border border-gray-300 rounded-lg p-3 text-center text-sm">
+                                    16:00 - 17:00
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Meeting Platform</label>
+                            <select class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                <option>Zoom</option>
+                                <option>Microsoft Teams</option>
+                                <option>Google Meet</option>
+                                <option>WeChat Video</option>
+                            </select>
+                        </div>
+                        
+                        <button onclick="confirmBooking()" 
+                                class="w-full bg-amber-500 hover:bg-amber-600 text-white py-3 rounded-xl font-semibold transition-all duration-300">
+                            Confirm Booking
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="font-display text-2xl font-bold mb-4">Li Yang</div>
+            <p class="text-blue-200 mb-6">PhD Applicant in Counseling Psychology | AI-Assisted Psychotherapy Researcher</p>
+            <div class="flex justify-center space-x-6 mb-6">
+                <a href="mailto:liyangpsy@mail.bnu.edu.cn" class="text-blue-200 hover:text-white transition-colors">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                    </svg>
+                </a>
+                <a href="index.html" class="text-blue-200 hover:text-white transition-colors">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
+                    </svg>
+                </a>
+            </div>
+            <p class="text-blue-300 text-sm">
+                © 2025 Li Yang. All rights reserved. | PhD Applicant in Counseling Psychology
+            </p>
+        </div>
+    </footer>
+
+    <!-- Booking Success Modal -->
+    <div id="booking-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center">
+        <div class="bg-white rounded-2xl p-8 max-w-md mx-4">
+            <div class="text-center">
+                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                </div>
+                <h3 class="font-display text-2xl font-bold text-gray-900 mb-4">Booking Confirmed!</h3>
+                <p class="text-gray-600 mb-6">I will send the meeting link via email before the scheduled time. Please keep your email accessible.</p>
+                <button onclick="closeBookingModal()" 
+                        class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-xl font-semibold transition-colors">
+                    OK
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize floating background
+            new p5(function(p) {
+                let particles = [];
+                const numParticles = 30;
+                
+                p.setup = function() {
+                    const canvas = p.createCanvas(p.windowWidth, 400);
+                    canvas.parent('floating-bg');
+                    
+                    for (let i = 0; i < numParticles; i++) {
+                        particles.push({
+                            x: p.random(p.width),
+                            y: p.random(p.height),
+                            vx: p.random(-0.3, 0.3),
+                            vy: p.random(-0.3, 0.3),
+                            size: p.random(3, 8),
+                            opacity: p.random(0.05, 0.15)
+                        });
+                    }
+                };
+                
+                p.draw = function() {
+                    p.clear();
+                    
+                    particles.forEach(particle => {
+                        particle.x += particle.vx;
+                        particle.y += particle.vy;
+                        
+                        if (particle.x < 0 || particle.x > p.width) particle.vx *= -1;
+                        if (particle.y < 0 || particle.y > p.height) particle.vy *= -1;
+                        
+                        p.fill(30, 58, 138, particle.opacity * 255);
+                        p.noStroke();
+                        p.ellipse(particle.x, particle.y, particle.size);
+                    });
+                };
+                
+                p.windowResized = function() {
+                    p.resizeCanvas(p.windowWidth, 400);
+                };
+            });
+            
+            // Page load animation
+            anime({
+                targets: '.contact-card, .contact-method',
+                translateY: [50, 0],
+                opacity: [0, 1],
+                delay: anime.stagger(200),
+                duration: 800,
+                easing: 'easeOutExpo'
+            });
+            
+            // Time slot selection
+            const timeSlots = document.querySelectorAll('.time-slot');
+            timeSlots.forEach(slot => {
+                slot.addEventListener('click', function() {
+                    timeSlots.forEach(s => s.classList.remove('selected'));
+                    this.classList.add('selected');
+                });
+            });
+            
+            // Form submission
+            document.getElementById('contact-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const submitBtn = this.querySelector('button[type="submit"]');
+                const originalText = submitBtn.textContent;
+                
+                submitBtn.textContent = 'Sending...';
+                submitBtn.disabled = true;
+                
+                setTimeout(() => {
+                    alert('Message sent successfully! I will get back to you soon.');
+                    this.reset();
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                }, 2000);
+            });
+        });
+        
+        // Show booking modal
+        function showBookingModal() {
+            document.getElementById('booking-modal').classList.remove('hidden');
+        }
+        
+        // Close booking modal
+        function closeBookingModal() {
+            document.getElementById('booking-modal').classList.add('hidden');
+        }
+        
+        // Confirm booking
+        function confirmBooking() {
+            const selectedDate = document.getElementById('meeting-date').value;
+            const selectedTime = document.querySelector('.time-slot.selected');
+            
+            if (!selectedDate || !selectedTime) {
+                alert('Please select a complete appointment time');
+                return;
+            }
+            
+            showBookingModal();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Li Yang - PhD Applicant in Counseling Psychology</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-blue: #1e3a8a;
+      --warm-beige: #f5f5dc;
+      --amber-gold: #f59e0b;
+      --charcoal: #374151;
+    }
+    .font-display { font-family: 'Playfair Display', serif; }
+    .font-body { font-family: 'Inter', sans-serif; }
+    .hero-bg {
+      background: linear-gradient(135deg, rgba(30, 58, 138, 0.9), rgba(245, 158, 11, 0.1)),
+                  url('resources/hero-bg.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+    .nav-blur {
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.9);
+    }
+    .particle-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+    .typing-effect {
+      border-right: 2px solid var(--amber-gold);
+      animation: blink 1s infinite;
+    }
+    @keyframes blink {
+      0%, 50% { border-color: var(--amber-gold); }
+      51%, 100% { border-color: transparent; }
+    }
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+
+<body class="font-body text-gray-800 bg-white">
+  <!-- ===== Navigation ===== -->
+  <nav class="fixed top-0 w-full z-50 nav-blur transition-all duration-300" id="navbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="font-display font-bold text-xl text-blue-900">Li Yang</div>
+        <div class="hidden md:flex space-x-8">
+          <a href="#home" class="nav-link text-gray-700 hover:text-blue-900 transition-colors">Home</a>
+          <a href="research.html" class="nav-link text-gray-700 hover:text-blue-900 transition-colors">Research</a>
+          <a href="clinical.html" class="nav-link text-gray-700 hover:text-blue-900 transition-colors">Practice</a>
+          <a href="life.html" class="nav-link text-gray-700 hover:text-blue-900 transition-colors">Life Beyond Lab</a>
+          <a href="contact.html" class="nav-link text-gray-700 hover:text-blue-900 transition-colors">Contact</a>
+        </div>
+        <div class="md:hidden">
+          <button id="mobile-menu-btn" class="text-gray-700 hover:text-blue-900">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+      <div class="px-2 pt-2 pb-3 space-y-1">
+        <a href="#home" class="block px-3 py-2 text-gray-700 hover:text-blue-900">Home</a>
+        <a href="research.html" class="block px-3 py-2 text-gray-700 hover:text-blue-900">Research</a>
+        <a href="clinical.html" class="block px-3 py-2 text-gray-700 hover:text-blue-900">Practice</a>
+        <a href="life.html" class="block px-3 py-2 text-gray-700 hover:text-blue-900">Life Beyond Lab</a>
+        <a href="contact.html" class="block px-3 py-2 text-gray-700 hover:text-blue-900">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== Hero ===== -->
+  <section id="home" class="hero-bg min-h-screen flex items-center justify-center relative overflow-hidden">
+    <div class="particle-bg" id="particle-container"></div>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white relative z-10">
+      <img src="resources/profile-vertical.jpg" alt="Li Yang" class="h-48 mx-auto mb-6 border-4 border-white shadow-2xl rounded-2xl object-cover">
+      <h1 class="font-display text-5xl md:text-6xl font-bold text-white mb-4">Li Yang</h1>
+      <p class="text-lg text-white mb-6">Welcome to my personal page! I am currently a senior undergraduate in the School of Psychology, Beijing Normal University.</p>
+    </div>
+  </section>
+
+  <!-- ===== Personal Statement on Home ===== -->
+  <section id="statement-home" class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Academic Philosophy -->
+      <div class="mb-16">
+        <h2 class="font-display text-3xl font-bold text-center text-gray-900 mb-6">Academic Philosophy</h2>
+        <p class="text-gray-700 leading-relaxed mb-4">
+          Growing up in a rural Miao (Hmong) community, I rarely encountered formal mental-health services. Most families relied on traditional shamanistic practices, which provided some support but could not fully address mental-health needs.
+        </p>
+        <p class="text-gray-700 leading-relaxed mb-4">
+          This early exposure inspired me to study psychology at Beijing Normal University (BNU) and later engage in volunteer work across minority communities in Xinjiang, Tibet, and Inner Mongolia. There, I gained a clearer understanding of some structural barriers underlying the mental-health gap: insufficient funding, a shortage of well-trained providers, and limited cultural adaptation.
+        </p>
+        <p class="text-gray-700 leading-relaxed">
+          These observations now guide my research interests and fuel my commitment to exploring innovative digital approaches to improve the adaptability and scalability of mental health services.
+        </p>
+        <p class="text-gray-700 leading-relaxed">
+          I believe that <span class="bg-amber-100 px-1 rounded">emerging technologies, particularly artificial intelligence</span>, provide unprecedented opportunities to address the global shortage of mental health services.
+        </p>
+      </div>
+
+      <!-- Research Interests -->
+      <div class="mb-16">
+        <h2 class="font-display text-3xl font-bold text-center text-gray-900 mb-6">Research Interests</h2>
+        <div class="grid gap-6">
+          <div class="border-l-4 border-amber-500 pl-4">
+            <h3 class="font-semibold text-amber-900">AI-Assisted Therapist Training</h3>
+            <p class="text-gray-700 text-sm">Using large language models to create low-risk practice clients for novice counselors, with real-time feedback and culturally tailored scenarios.</p>
+          </div>
+          <div class="border-l-4 border-blue-500 pl-4">
+            <h3 class="font-semibold text-blue-900">Therapeutic Process Analysis</h3>
+            <p class="text-gray-700 text-sm">AI-assisted qualitative analysis to identify therapist-client interaction patterns and predict treatment outcomes using multilevel modeling.</p>
+          </div>
+          <div class="border-l-4 border-green-500 pl-4">
+            <h3 class="font-semibold text-green-900">Neural Mechanisms of Learning and Synchrony</h3>
+            <p class="text-gray-700 text-sm">Exploring inter-brain synchrony and physiological coherence during therapy using fNIRS and HRV to understand alliance formation.</p>
+          </div>
+          <div class="border-l-4 border-purple-500 pl-4">
+            <h3 class="font-semibold text-purple-900">Cultural Integration in Mental Health</h3>
+            <p class="text-gray-700 text-sm">Integrating Cultural Formulation Interview (CFI)-based procedures into interventions and AI-driven cultural tailoring for diverse populations.</p>
+          </div>
+          <div class="border-l-4 border-pink-500 pl-4">
+            <h3 class="font-semibold text-pink-900">AI-Assisted Intervention Design</h3>
+            <p class="text-gray-700 text-sm">Exploring AI-assisted methods for culturally tailoring and evaluating intervention effectiveness in real-world settings.</p>
+          </div>
+          <div class="border-l-4 border-teal-500 pl-4">
+            <h3 class="font-semibold text-teal-900">Implementation & Intervention Science</h3>
+            <p class="text-gray-700 text-sm">Focusing on school-based and trauma-focused interventions, with emphasis on implementation science and scalability in underserved regions.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Long-term Career Goals -->
+      <div class="mb-16">
+        <h2 class="font-display text-3xl font-bold text-center text-gray-900 mb-6">Long-term Career Goals</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-center">
+          <div class="bg-blue-50 rounded-xl p-4">
+            <h3 class="font-semibold text-blue-900">Clinical Scientist</h3>
+            <p class="text-xs text-gray-600">Develop & validate evidence-based, culturally sensitive therapist training methods.</p>
+          </div>
+          <div class="bg-green-50 rounded-xl p-4">
+            <h3 class="font-semibold text-green-900">Educator & Mentor</h3>
+            <p class="text-xs text-gray-600">Train & mentor next-generation mental-health professionals.</p>
+          </div>
+          <div class="bg-amber-50 rounded-xl p-4">
+            <h3 class="font-semibold text-amber-900">International Partner</h3>
+            <p class="text-xs text-gray-600">Build global networks, especially for developing countries.</p>
+          </div>
+          <div class="bg-purple-50 rounded-xl p-4">
+            <h3 class="font-semibold text-purple-900">Tech Innovator</h3>
+            <p class="text-xs text-gray-600">Create novel training tools to close the mental-health gap.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Conclusion -->
+      <div class="bg-gradient-to-br from-blue-900 to-purple-900 text-white rounded-3xl p-8 md:p-12 text-center">
+        <h2 class="font-display text-3xl font-bold mb-6">Conclusion</h2>
+        <p class="text-lg leading-relaxed mb-6 max-w-3xl mx-auto">
+          My academic journey began with a deep concern for the mental health needs of my rural Miao community. After rigorous training at Beijing Normal University, I am ready to pursue doctoral studies.
+        </p>
+        <p class="text-base leading-relaxed max-w-3xl mx-auto">
+          I am committed to integrating rigorous science with AI innovation to make mental health services more <span class="text-amber-300">accessible</span>, <span class="text-amber-300">effective</span>, and <span class="text-amber-300">culturally responsive</span>—especially for those who need them most.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="bg-blue-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="font-display text-2xl font-bold mb-4">Li Yang</div>
+      <p class="text-blue-200 mb-6">Undergraduate Student in BNU</p>
+      <div class="flex justify-center space-x-6 mb-6">
+        <a href="mailto:liyangpsy@mail.bnu.edu.cn" class="text-blue-200 hover:text-white transition-colors">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+          </svg>
+        </a>
+        <a href="index.html" class="text-blue-200 hover:text-white transition-colors">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
+          </svg>
+        </a>
+      </div>
+      <p class="text-blue-300 text-sm">© 2025 Li Yang. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ===== JS: particles + typing ===== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // 1. particle background
+      new p5(function (p) {
+        const num = 50, particles = [];
+        p.setup = () => {
+          const canvas = p.createCanvas(p.windowWidth, p.windowHeight);
+          canvas.parent('particle-container');
+          for (let i = 0; i < num; i++) particles.push({
+            x: p.random(p.width), y: p.random(p.height),
+            vx: p.random(-0.5, 0.5), vy: p.random(-0.5, 0.5),
+            size: p.random(2, 6), opacity: p.random(0.1, 0.3)
+          });
+        };
+        p.draw = () => {
+          p.clear();
+          particles.forEach(q => {
+            q.x += q.vx; q.y += q.vy;
+            if (q.x < 0 || q.x > p.width) q.vx *= -1;
+            if (q.y < 0 || q.y > p.height) q.vy *= -1;
+            p.fill(255, 255, 255, q.opacity * 255);
+            p.noStroke(); p.ellipse(q.x, q.y, q.size);
+          });
+        };
+        p.windowResized = () => p.resizeCanvas(p.windowWidth, p.windowHeight);
+      });
+
+      // 2. typing effect
+      const title = document.getElementById('hero-title'),
+            txt = title.textContent;
+      title.textContent = '';
+      let i = 0;
+      const type = () => {
+        if (i < txt.length) { title.textContent += txt.charAt(i++); setTimeout(type, 150); }
+        else setTimeout(() => title.classList.remove('typing-effect'), 2000);
+      };
+      setTimeout(type, 1000);
+    });
+  </script>
+</body>
+</html>

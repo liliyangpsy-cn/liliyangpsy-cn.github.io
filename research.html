@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Experience - Li Yang</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #1e3a8a;
+            --warm-beige: #f5f5dc;
+            --amber-gold: #f59e0b;
+            --charcoal: #374151;
+        }
+        
+        .font-display { font-family: 'Playfair Display', serif; }
+        .font-body { font-family: 'Inter', sans-serif; }
+        
+        .timeline-item {
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(30, 58, 138, 0.1);
+        }
+        
+        .research-card {
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+        
+        .research-card:hover {
+            border-left-color: var(--amber-gold);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-blur {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.9);
+        }
+        
+        .leaflet-container {
+            border-radius: 12px;
+        }
+    </style>
+</head>
+<body class="font-body text-gray-800 bg-gray-50">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 nav-blur shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="font-display font-bold text-xl text-blue-900">
+                    <a href="index.html">Li Yang</a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-900 transition-colors">Home</a>
+                    <a href="research.html" class="text-blue-900 font-semibold">Research</a>
+                    <a href="clinical.html" class="text-gray-700 hover:text-blue-900 transition-colors">Clinical Experience</a>
+                    <a href="life.html" class="text-gray-700 hover:text-blue-900 transition-colors">Life Beyond Lab</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-blue-900 transition-colors">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Title -->
+    <section class="pt-24 pb-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="font-display text-5xl font-bold text-gray-900 mb-6">Research Experience</h1>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    From AI-assisted psychotherapy to neurophysiological synchrony research, exploring innovative approaches to mental health services
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Research Map -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-display text-4xl font-bold text-gray-900 mb-4">Research Footprint</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <div id="research-map" style="height: 400px;" class="rounded-2xl shadow-lg"></div>
+                </div>
+                
+                <div class="space-y-6">
+                    <div class="bg-gray-50 rounded-2xl p-8">
+                        <h3 class="font-display text-2xl font-semibold mb-6 text-center">Key Research Institutions</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 bg-blue-600 rounded-full mr-3"></div>
+                                <div>
+                                    <div class="font-semibold">Beijing Normal University</div>
+                                    <div class="text-sm text-gray-600">Undergraduate studies & primary research base</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 bg-purple-600 rounded-full mr-3"></div>
+                                <div>
+                                    <div class="font-semibold">University of Victoria</div>
+                                    <div class="text-sm text-gray-600">Summer research internship in AI-assisted qualitative analysis</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 bg-green-600 rounded-full mr-3"></div>
+                                <div>
+                                    <div class="font-semibold">Nanyang Technological University</div>
+                                    <div class="text-sm text-gray-600">Research writing skills training summer school</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 bg-amber-600 rounded-full mr-3"></div>
+                                <div>
+                                    <div class="font-semibold">University of New South Wales</div>
+                                    <div class="text-sm text-gray-600">Exchange program</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Timeline -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="relative">
+                <!-- Timeline Line -->
+                <div class="absolute left-1/2 transform -translate-x-1/2 w-1 bg-blue-200 h-full"></div>
+                
+                <!-- Research Items -->
+                <div class="space-y-12">
+                    <!-- AI Virtual Clients Research -->
+                    <div class="timeline-item research-card bg-white rounded-2xl p-8 shadow-lg ml-0 md:ml-8" data-category="ai">
+                        <div class="flex flex-col md:flex-row items-start gap-6">
+                            <div class="flex-shrink-0">
+                                <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
+                                    <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                                    <h3 class="font-display text-2xl font-semibold text-gray-900 mb-2 md:mb-0">
+                                        AI Virtual Clients in Suicide Prevention Training
+                                    </h3>
+                                    <span class="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">Jul 2025 - Present</span>
+                                </div>
+                                <p class="text-gray-600 mb-4 leading-relaxed">
+                                    Developed AI virtual client systems based on large language models to provide low-risk practice opportunities for novice counselors in crisis intervention skills. Designed randomized controlled trials to evaluate the effectiveness of AI virtual clients in suicide prevention training.
+                                </p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">AI Applications</span>
+                                    <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">Crisis Intervention</span>
+                                    <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">RCT Design</span>
+                                </div>
+                                <div class="text-sm text-gray-500">
+                                    <strong>Advisor:</strong> Dr. Kishimoto Tomoko | 
+                                    <strong>Keywords:</strong> AI Virtual Clients, Suicide Prevention, Counselor Training
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- AI-Assisted Qualitative Analysis -->
+                    <div class="timeline-item research-card bg-white rounded-2xl p-8 shadow-lg ml-0 md:mr-8 md:ml-0" data-category="ai">
+                        <div class="flex flex-col md:flex-row items-start gap-6">
+                            <div class="flex-shrink-0">
+                                <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center">
+                                    <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                                    <h3 class="font-display text-2xl font-semibold text-gray-900 mb-2 md:mb-0">
+                                        Open-Source AI Integration in Thematic Analysis
+                                    </h3>
+                                    <span class="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">Apr 2025 - Sep 2025</span>
+                                </div>
+                                <p class="text-gray-600 mb-4 leading-relaxed">
+                                    During internship at University of Victoria, developed Python scripts integrating local large language models to support key steps of thematic analysis. Explored effects of different model sizes, types, and parameters on analysis outcomes.
+                                </p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Qualitative Analysis</span>
+                                    <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Python Development</span>
+                                    <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm">LLM Applications</span>
+                                </div>
+                                <div class="text-sm text-gray-500">
+                                    <strong>Collaborators:</strong> Dr. Nigel Lou, Dr. Tony Ahn | 
+                                    <strong>Conference:</strong> 10th World Conference on Qualitative Research
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Bullying Victims Research -->
+                    <div class="timeline-item research-card bg-white rounded-2xl p-8 shadow-lg ml-0 md:ml-8" data-category="longitudinal">
+                        <div class="flex flex-col md:flex-row items-start gap-6">
+                            <div class="flex-shrink-0">
+                                <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center">
+                                    <svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                                    <h3 class="font-display text-2xl font-semibold text-gray-900 mb-2 md:mb-0">
+                                        Co-development of Depressive Symptoms and Prosocial Behavior Among Bullying Victims
+                                    </h3>
+                                    <span class="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">Sep 2024 - Oct 2025</span>
+                                </div>
+                                <p class="text-gray-600 mb-4 leading-relaxed">
+                                    As first author, led manuscript writing for a longitudinal study on bullying victims in early adulthood, closely following analyses conducted with Parallel Latent Growth Curve Modeling (PLGCM) and Latent Change Models with Structured Residuals (LCM-SR), and contributed to interpretation, figure, and table preparation.
+                                </p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">Longitudinal Study</span>
+                                    <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Mplus Analysis</span>
+                                    <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">First Author</span>
+                                </div>
+                                <div class="text-sm text-gray-500">
+                                    <strong>Advisor:</strong> Dr. Wenchao Wang | 
+                                    <strong>Status:</strong> Submitted
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Loving-Kindness Meditation Research -->
+                    <div class="timeline-item research-card bg-white rounded-2xl p-8 shadow-lg ml-0 md:mr-8 md:ml-0" data-category="clinical">
+                        <div class="flex flex-col md:flex-row items-start gap-6">
+                            <div class="flex-shrink-0">
+                                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center">
+                                    <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                                    <h3 class="font-display text-2xl font-semibold text-gray-900 mb-2 md:mb-0">
+                                        Loving-Kindness and Compassion Meditation Intervention for Workplace Well-being
+                                    </h3>
+                                    <span class="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">Jan 2024 - Jul 2025</span>
+                                </div>
+                                <p class="text-gray-600 mb-4 leading-relaxed">
+                                    Participated in 14-day online loving-kindness meditation RCT, responsible for participant recruitment, data preprocessing, repeated measures ANOVA and mediation analysis, assisted in manuscript writing and revision.
+                                </p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Intervention Study</span>
+                                    <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">RCT Design</span>
+                                    <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">SPSS Analysis</span>
+                                </div>
+                                <div class="text-sm text-gray-500">
+                                    <strong>Advisor:</strong> Dr. Xianglong Zeng | 
+                                    <strong>Publication:</strong> Journal of Happiness Studies
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Neural Synchrony Research -->
+                    <div class="timeline-item research-card bg-white rounded-2xl p-8 shadow-lg ml-0 md:ml-8" data-category="neuroscience">
+                        <div class="flex flex-col md:flex-row items-start gap-6">
+                            <div class="flex-shrink-0">
+                                <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center">
+                                    <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                                    <h3 class="font-display text-2xl font-semibold text-gray-900 mb-2 md:mb-0">
+                                        Neural Mechanisms of the Forward Testing Effect: Evidence from Inter-subject Neural Synchrony
+                                    </h3>
+                                    <span class="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">May 2023 - May 2024</span>
+                                </div>
+                                <p class="text-gray-600 mb-4 leading-relaxed">
+                                    Used functional near-infrared spectroscopy (fNIRS) to investigate teacher-student brain synchrony and its prediction of learning outcomes. Responsible for participant recruitment, fNIRS data collection, and MATLAB preprocessing.
+                                </p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm">fNIRS</span>
+                                    <span class="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm">MATLAB</span>
+                                    <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">jsPsych</span>
+                                </div>
+                                <div class="text-sm text-gray-500">
+                                    <strong>Advisor:</strong> Dr. Chunliang Yang | 
+                                    <strong>Status:</strong> Finished
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="font-display text-2xl font-bold mb-4">Li Yang</div>
+            <p class="text-blue-200 mb-6">Undergraduate Student in BNU</p>
+            <div class="flex justify-center space-x-6 mb-6">
+                <a href="mailto:liyangpsy@mail.bnu.edu.cn" class="text-blue-200 hover:text-white transition-colors">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                    </svg>
+                </a>
+                <a href="index.html" class="text-blue-200 hover:text-white transition-colors">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
+                    </svg>
+                </a>
+            </div>
+            <p class="text-blue-300 text-sm">
+                © 2025 Li Yang. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize research map
+            const map = L.map('research-map').setView([39.9042, 116.4074], 4);
+            
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors'
+            }).addTo(map);
+            
+            const researchLocations = [
+                {
+                    name: 'Beijing Normal University',
+                    coords: [39.9042, 116.4074],
+                    description: 'Undergraduate studies & primary research base',
+                    color: '#1e3a8a'
+                },
+                {
+                    name: 'University of Victoria',
+                    coords: [48.4284, -123.3656],
+                    description: 'Summer research internship in AI-assisted qualitative analysis',
+                    color: '#7c3aed'
+                },
+                {
+                    name: 'Nanyang Technological University',
+                    coords: [1.2966, 103.7764],
+                    description: 'Research writing skills training summer school',
+                    color: '#059669'
+                },
+                {
+                    name: 'University of New South Wales',
+                    coords: [-33.8688, 151.2093],
+                    description: 'Exchange program',
+                    color: '#d97706'
+                }
+            ];
+            
+            researchLocations.forEach(location => {
+                const marker = L.circleMarker(location.coords, {
+                    radius: 8,
+                    fillColor: location.color,
+                    color: location.color,
+                    weight: 2,
+                    opacity: 0.8,
+                    fillOpacity: 0.6
+                }).addTo(map);
+                
+                marker.bindPopup(`
+                    <div class="text-center">
+                        <h3 class="font-semibold text-lg">${location.name}</h3>
+                        <p class="text-gray-600">${location.description}</p>
+                    </div>
+                `);
+            });
+            
+            // Page load animation
+            anime({
+                targets: '.timeline-item',
+                translateY: [50, 0],
+                opacity: [0, 1],
+                delay: anime.stagger(200),
+                duration: 800,
+                easing: 'easeOutExpo'
+            });
+        });
+    </script>
+</body>
+</html>
