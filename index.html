@@ -31,6 +31,12 @@
       backdrop-filter: blur(10px);
       background: rgba(255, 255, 255, 0.9);
     }
+    .highlight-text {
+      background-color: #fef3c7; /* 柔和黄色背景 */
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-weight: 500;
+    }
     .particle-bg {
       position: absolute;
       top: 0;
@@ -38,14 +44,6 @@
       width: 100%;
       height: 100%;
       z-index: -1;
-    }
-    .typing-effect {
-      border-right: 2px solid var(--amber-gold);
-      animation: blink 1s infinite;
-    }
-    @keyframes blink {
-      0%, 50% { border-color: var(--amber-gold); }
-      51%, 100% { border-color: transparent; }
     }
     html { scroll-behavior: smooth; }
   </style>
@@ -116,62 +114,142 @@
       </div>
 
       <!-- Research Interests -->
-      <div class="mb-16">
-        <h2 class="font-display text-3xl font-bold text-center text-gray-900 mb-6">Research Interests</h2>
-        <div class="grid gap-6">
-          <div class="border-l-4 border-amber-500 pl-4">
-            <h3 class="font-semibold text-amber-900">AI-Assisted Therapist Training</h3>
-            <p class="text-gray-700 text-sm">Using large language models to create low-risk practice clients for novice counselors, with real-time feedback and culturally tailored scenarios.</p>
+      <!-- 研究兴趣 -->
+      <div class="statement-section bg-white rounded-3xl p-8 md:p-12 shadow-lg mb-12">
+          <div class="flex items-center mb-8">
+              <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mr-4">
+                  <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                  </svg>
+              </div>
+              <h2 class="font-display text-3xl font-bold text-gray-900">Research Interests</h2>
           </div>
-          <div class="border-l-4 border-blue-500 pl-4">
-            <h3 class="font-semibold text-blue-900">Therapeutic Process Analysis</h3>
-            <p class="text-gray-700 text-sm">AI-assisted qualitative analysis to identify therapist-client interaction patterns and predict treatment outcomes using multilevel modeling.</p>
-          </div>
-          <div class="border-l-4 border-green-500 pl-4">
-            <h3 class="font-semibold text-green-900">Neural Mechanisms of Learning and Synchrony</h3>
-            <p class="text-gray-700 text-sm">Exploring inter-brain synchrony and physiological coherence during therapy using fNIRS and HRV to understand alliance formation.</p>
-          </div>
-          <div class="border-l-4 border-purple-500 pl-4">
-            <h3 class="font-semibold text-purple-900">Cultural Integration in Mental Health</h3>
-            <p class="text-gray-700 text-sm">Integrating Cultural Formulation Interview (CFI)-based procedures into interventions and AI-driven cultural tailoring for diverse populations.</p>
-          </div>
-          <div class="border-l-4 border-pink-500 pl-4">
-            <h3 class="font-semibold text-pink-900">AI-Assisted Intervention Design</h3>
-            <p class="text-gray-700 text-sm">Exploring AI-assisted methods for culturally tailoring and evaluating intervention effectiveness in real-world settings.</p>
-          </div>
-          <div class="border-l-4 border-teal-500 pl-4">
-            <h3 class="font-semibold text-teal-900">Implementation & Intervention Science</h3>
-            <p class="text-gray-700 text-sm">Focusing on school-based and trauma-focused interventions, with emphasis on implementation science and scalability in underserved regions.</p>
-          </div>
-        </div>
+
+          <div class="space-y-8">
+
+              <!-- AI-Assisted Therapist Training -->
+              <div class="border-l-4 border-amber-500 pl-6">
+                  <h3 class="font-display text-xl font-semibold mb-3 text-amber-900">AI-Assisted Therapist Training</h3>
+                  <p class="text-gray-700 leading-relaxed mb-3">
+                      The shortage of well-trained counselors remains a critical barrier to service delivery in underserved regions. I hope to develop <span class="highlight-text font-semibold">scalable and low-cost training approaches</span> to help reduce this gap.
+                  </p>
+                  <p class="text-gray-700 leading-relaxed">
+                      In my future work, I plan to explore how AI can generate <span class="highlight-text font-semibold">ecologically valid and diverse practice scenarios</span> and create text- or voice-based AI-simulated clients for therapist skill development. I am also interested in designing real-time AI-based process evaluation and feedback systems to strengthen trainees’ competence and self-efficacy.
+                  </p>
+              </div>
+
+              <!-- Psychotherapy Process Analysis -->
+              <div class="border-l-4 border-blue-500 pl-6">
+                  <h3 class="font-display text-xl font-semibold mb-3 text-blue-900">Psychotherapy Process Analysis</h3>
+                  <p class="text-gray-700 leading-relaxed mb-3">
+                      I plan to apply AI-assisted qualitative analysis and machine-learning methods to identify <span class="highlight-text font-semibold">therapist–client interaction patterns</span> that shape therapeutic processes and outcomes.
+                  </p>
+                  <p class="text-gray-700 leading-relaxed">
+                      I also hope to use multilevel modeling and structural equation modeling to examine how these microprocesses explain variations in client outcomes, providing empirical foundations for <span class="highlight-text font-semibold">targeted training module design</span>.
+                  </p>
+              </div>
+
+              <!-- Interpersonal Neurophysiological Synchrony -->
+              <div class="border-l-4 border-green-500 pl-6">
+                  <h3 class="font-display text-xl font-semibold mb-3 text-green-900">Interpersonal Neurophysiological Synchrony</h3>
+                  <p class="text-gray-700 leading-relaxed mb-3">
+                      Building on my prior experience studying teacher–student neural synchrony, I plan to investigate <span class="highlight-text font-semibold">therapist–client interpersonal synchrony</span> as a mechanism underlying therapeutic alliance and outcomes. This work may involve collecting and analyzing HRV, EDA, and related physiological indicators.
+                  </p>
+                  <p class="text-gray-700 leading-relaxed">
+                      By integrating neuroimaging and physiological measures, I hope to more comprehensively capture the <span class="highlight-text font-semibold">dynamic interpersonal processes</span> that facilitate therapeutic change and inform evidence-based counselor training.
+                  </p>
+              </div>
+
+              <!-- Culturally Responsive Mental Health -->
+              <div class="border-l-4 border-purple-500 pl-6">
+                  <h3 class="font-display text-xl font-semibold mb-3 text-purple-900">Culturally Responsive Mental Health</h3>
+                  <p class="text-gray-700 leading-relaxed mb-3">
+                      I am interested in integrating Cultural Formulation Interview (CFI)-based assessments into psychotherapy and exploring how AI can support <span class="highlight-text font-semibold">culturally tailored intervention design</span> for diverse populations.
+                  </p>
+                  <p class="text-gray-700 leading-relaxed">
+                      My future work will focus on improving cultural attunement in clinical decision-making and developing tools that help practitioners understand clients’ cultural contexts more systematically.
+                  </p>
+              </div>
+
+              <!-- Implementation Science and Scalability -->
+              <div class="border-l-4 border-teal-500 pl-6">
+                  <h3 class="font-display text-xl font-semibold mb-3 text-teal-900">Implementation Science and Scalability</h3>
+                  <p class="text-gray-700 leading-relaxed mb-3">
+                      I plan to study the implementation and scalability of school-based and trauma-focused interventions, particularly in underserved or rural regions. My research will examine contextual barriers and facilitators that influence adoption and sustainability.
+                  </p>
+                  <p class="text-gray-700 leading-relaxed">
+                      By integrating implementation-science frameworks with quantitative and qualitative methods, I hope to develop strategies that enhance intervention <span class="highlight-text font-semibold">reach, fidelity, and long-term effectiveness</span>.
+                  </p>
+              </div>
+            </div>
       </div>
 
-      <!-- Long-term Career Goals -->
-      <div class="mb-16">
-        <h2 class="font-display text-3xl font-bold text-center text-gray-900 mb-6">Long-term Career Goals</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-center">
-          <div class="bg-blue-50 rounded-xl p-4">
-            <h3 class="font-semibold text-blue-900">Clinical Scientist</h3>
-            <p class="text-xs text-gray-600">Develop & validate evidence-based, culturally sensitive therapist training methods.</p>
+
+      <!-- Career Goals -->
+      <div class="statement-section bg-white rounded-3xl p-8 md:p-12 shadow-lg mb-12">
+          <div class="flex items-center mb-8">
+              <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mr-4">
+                  <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                  </svg>
+              </div>
+              <h2 class="font-display text-3xl font-bold text-gray-900">Long-Term Career Goals</h2>
           </div>
-          <div class="bg-green-50 rounded-xl p-4">
-            <h3 class="font-semibold text-green-900">Educator & Mentor</h3>
-            <p class="text-xs text-gray-600">Train & mentor next-generation mental-health professionals.</p>
+
+          <div class="space-y-6">
+              <div class="flex items-start">
+                  <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                      <span class="text-blue-600 font-bold text-sm">1</span>
+                  </div>
+                  <div>
+                      <h3 class="font-display text-lg font-semibold mb-2 text-blue-900">Clinical Scientist</h3>
+                      <p class="text-gray-700 leading-relaxed">
+                          Develop and validate evidence-based, culturally-sensitive therapist-training methods, continuously improving the quality of mental-health services.
+                      </p>
+                  </div>
+              </div>
+
+              <div class="flex items-start">
+                  <div class="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                      <span class="text-amber-600 font-bold text-sm">2</span>
+                  </div>
+                  <div>
+                      <h3 class="font-display text-lg font-semibold mb-2 text-amber-900">Educator & Mentor</h3>
+                      <p class="text-gray-700 leading-relaxed">
+                          Teach and mentor the next generation of mental-health professionals, passing on research and clinical experience to advance the field.
+                      </p>
+                  </div>
+              </div>
+
+              <div class="flex items-start">
+                  <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                      <span class="text-green-600 font-bold text-sm">3</span>
+                  </div>
+                  <div>
+                      <h3 class="font-display text-lg font-semibold mb-2 text-green-900">International Collaborator</h3>
+                      <p class="text-gray-700 leading-relaxed">
+                          Build global research networks, focusing on trainer-training needs in developing countries and promoting worldwide mental-health development.
+                      </p>
+                  </div>
+              </div>
+
+              <div class="flex items-start">
+                  <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                      <span class="text-purple-600 font-bold text-sm">4</span>
+                  </div>
+                  <div>
+                      <h3 class="font-display text-lg font-semibold mb-2 text-purple-900">Tech Innovator</h3>
+                      <p class="text-gray-700 leading-relaxed">
+                          Continue exploring emerging technologies in mental health, developing innovative training tools and interventions to close the global service gap.
+                      </p>
+                  </div>
+              </div>
           </div>
-          <div class="bg-amber-50 rounded-xl p-4">
-            <h3 class="font-semibold text-amber-900">International Partner</h3>
-            <p class="text-xs text-gray-600">Build global networks, especially for developing countries.</p>
-          </div>
-          <div class="bg-purple-50 rounded-xl p-4">
-            <h3 class="font-semibold text-purple-900">Tech Innovator</h3>
-            <p class="text-xs text-gray-600">Create novel training tools to close the mental-health gap.</p>
-          </div>
-        </div>
       </div>
 
       <!-- Conclusion -->
       <div class="bg-gradient-to-br from-blue-900 to-purple-900 text-white rounded-3xl p-8 md:p-12 text-center">
-        <h2 class="font-display text-3xl font-bold mb-6">Conclusion</h2>
+        <h2 class="font-display text-3xl font-bold mb-6">Summary</h2>
         <p class="text-lg leading-relaxed mb-6 max-w-3xl mx-auto">
           My academic journey began with a deep concern for the mental health needs of my rural Miao community. After rigorous training at Beijing Normal University, I am ready to pursue doctoral studies.
         </p>
@@ -232,17 +310,6 @@
         };
         p.windowResized = () => p.resizeCanvas(p.windowWidth, p.windowHeight);
       });
-
-      // 2. typing effect
-      const title = document.getElementById('hero-title'),
-            txt = title.textContent;
-      title.textContent = '';
-      let i = 0;
-      const type = () => {
-        if (i < txt.length) { title.textContent += txt.charAt(i++); setTimeout(type, 150); }
-        else setTimeout(() => title.classList.remove('typing-effect'), 2000);
-      };
-      setTimeout(type, 1000);
     });
   </script>
 </body>
